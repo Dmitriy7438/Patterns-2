@@ -32,7 +32,7 @@ public class AuthTest {
         $x("//*[@data-test-id='password']//input").setValue(registeredUser.getPassword());
         $x("//*[@data-test-id='action-login']").click();
 
-        $("//*[@id='root']").shouldHave(Condition.text("Личный кабинет"), Duration.ofSeconds(15));
+        $x("//*[@id='root']").shouldHave(Condition.text("Личный кабинет"), Duration.ofSeconds(15));
     }
 
     @Test
@@ -45,7 +45,7 @@ public class AuthTest {
         $x("//*[@data-test-id='password']//input").setValue(notRegisteredUser.getPassword());
         $x("//*[@data-test-id='action-login']").click();
 
-        $("//*[@data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"), Duration.ofSeconds(15));
+        $x("//*[@data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Неверно указан логин или пароль"), Duration.ofSeconds(15));
     }
 
     @Test
@@ -58,7 +58,7 @@ public class AuthTest {
         $x("//*[@data-test-id='password']//input").setValue(blockedUser.getPassword());
         $x("//*[@data-test-id='action-login']").click();
 
-        $("//*[@data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Пользователь заблокирован"), Duration.ofSeconds(15));
+        $x("//*[@data-test-id='error-notification']").shouldHave(Condition.text("Ошибка! Пользователь заблокирован"), Duration.ofSeconds(15));
     }
 
     @Test
